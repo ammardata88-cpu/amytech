@@ -1,0 +1,3 @@
+- [ ] Update LinkedIn href in Footer.tsx
+- [ ] Remove Twitter and Facebook <a> elements from Footer.tsx
+- [ ] Remove Twitter and Facebook from imports in Footer.tsx
