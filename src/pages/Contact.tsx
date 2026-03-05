@@ -30,24 +30,9 @@ const Contact = () => {
   });
 
   const contactInfo = [
-    {
-      icon: Phone,
-      title: t("contactPage.info.phone"),
-      value: "0583140470",
-      href: "tel:0583140470"
-    },
-    {
-      icon: Mail,
-      title: t("contactPage.info.email"),
-      value: "info@amytech.net",
-      href: "mailto:info@amytech.net"
-    },
-    {
-      icon: Clock,
-      title: t("contactPage.info.hours"),
-      value: t("contactPage.info.hoursValue"),
-      href: null
-    }
+    { icon: Phone, title: t("contactPage.info.phone"), value: "0583140470", href: "tel:0583140470" },
+    { icon: Mail, title: t("contactPage.info.email"), value: "info@amytech.net", href: "mailto:info@amytech.net" },
+    { icon: Clock, title: t("contactPage.info.hours"), value: t("contactPage.info.hoursValue"), href: null }
   ];
 
   const services = [
@@ -101,14 +86,9 @@ const Contact = () => {
       <title>Contact Amy Tech - Get a Free Consultation</title>
       <meta name="description" content="Contact Amy Tech for AI-powered ERP, CRM solutions, and digital transformation services. Book a free consultation today. Call 0583140470 or email info@amytech.net" />
 
-      {/* Hero Section */}
       <section className="py-24 bg-hero text-primary-foreground">
         <div className="container mx-auto px-4 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="max-w-4xl mx-auto text-center"
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto text-center">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/20 border border-accent/30 mb-8">
               <MessageSquare className="w-4 h-4 text-accent" />
               <span className="text-sm font-medium text-accent">{t("contactPage.badge")}</span>
@@ -124,162 +104,78 @@ const Contact = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16">
             {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
+            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
               <h2 className="text-3xl font-bold text-foreground mb-8">{t("contactPage.form.title")}</h2>
-              <form onSubmit={handleSubmit} className="space-y-6">
+
+              <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit} className="space-y-6">
+                <input type="hidden" name="form-name" value="contact" />
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="name">{t("contactPage.form.name")} {t("contactPage.form.required")}</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder={t("contactPage.form.namePlaceholder")}
-                      required
-                      className="h-12"
-                    />
+                    <Input id="name" name="name" value={formData.name} onChange={handleChange} placeholder={t("contactPage.form.namePlaceholder")} required className="h-12" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">{t("contactPage.form.email")} {t("contactPage.form.required")}</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder={t("contactPage.form.emailPlaceholder")}
-                      required
-                      className="h-12"
-                    />
+                    <Input id="email" name="email" type="email" value={formData.email} onChange={handleChange} placeholder={t("contactPage.form.emailPlaceholder")} required className="h-12" />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="phone">{t("contactPage.form.phone")}</Label>
-                    <Input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder={t("contactPage.form.phonePlaceholder")}
-                      className="h-12"
-                    />
+                    <Input id="phone" name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder={t("contactPage.form.phonePlaceholder")} className="h-12" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="company">{t("contactPage.form.company")}</Label>
-                    <Input
-                      id="company"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleChange}
-                      placeholder={t("contactPage.form.companyPlaceholder")}
-                      className="h-12"
-                    />
+                    <Input id="company" name="company" value={formData.company} onChange={handleChange} placeholder={t("contactPage.form.companyPlaceholder")} className="h-12" />
                   </div>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="service">{t("contactPage.form.service")} {t("contactPage.form.required")}</Label>
-                  <select
-                    id="service"
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                    required
-                    className="w-full h-12 px-4 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
-                  >
+                  <select id="service" name="service" value={formData.service} onChange={handleChange} required className="w-full h-12 px-4 rounded-lg border border-input bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-ring">
                     <option value="">{t("contactPage.form.servicePlaceholder")}</option>
                     {services.map((service) => (
-                      <option key={service.value} value={service.value}>
-                        {service.label}
-                      </option>
+                      <option key={service.value} value={service.value}>{service.label}</option>
                     ))}
                   </select>
                 </div>
 
                 <div className="space-y-2">
                   <Label htmlFor="message">{t("contactPage.form.message")} {t("contactPage.form.required")}</Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder={t("contactPage.form.messagePlaceholder")}
-                    required
-                    className="min-h-[150px] resize-none"
-                  />
+                  <Textarea id="message" name="message" value={formData.message} onChange={handleChange} placeholder={t("contactPage.form.messagePlaceholder")} required className="min-h-[150px] resize-none" />
                 </div>
 
-                <Button
-                  type="submit"
-                  variant="accent"
-                  size="xl"
-                  className="w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    t("contactPage.form.submitting")
-                  ) : (
-                    <>
-                      {t("contactPage.form.submit")}
-                      <Send className="w-5 h-5" />
-                    </>
-                  )}
+                <Button type="submit" variant="accent" size="xl" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? t("contactPage.form.submitting") : <>
+                    {t("contactPage.form.submit")}
+                    <Send className="w-5 h-5" />
+                  </>}
                 </Button>
               </form>
             </motion.div>
 
             {/* Contact Info */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="space-y-8"
-            >
+            <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-8">
               <div>
                 <h2 className="text-3xl font-bold text-foreground mb-4">{t("contactPage.info.title")}</h2>
-                <p className="text-muted-foreground text-lg">
-                  {t("contactPage.info.description")}
-                </p>
+                <p className="text-muted-foreground text-lg">{t("contactPage.info.description")}</p>
               </div>
 
               <div className="space-y-6">
                 {contactInfo.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex gap-4 p-6 rounded-2xl bg-card border border-border"
-                  >
+                  <motion.div key={index} initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }} className="flex gap-4 p-6 rounded-2xl bg-card border border-border">
                     <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
                       <item.icon className="w-6 h-6 text-accent" />
                     </div>
                     <div>
                       <h3 className="font-bold text-foreground mb-1">{item.title}</h3>
-                      {item.href ? (
-                        <a
-                          href={item.href}
-                          className="text-accent hover:underline text-lg"
-                        >
-                          {item.value}
-                        </a>
-                      ) : (
-                        <span className="text-muted-foreground text-lg">{item.value}</span>
-                      )}
+                      {item.href ? <a href={item.href} className="text-accent hover:underline text-lg">{item.value}</a> : <span className="text-muted-foreground text-lg">{item.value}</span>}
                     </div>
                   </motion.div>
                 ))}
