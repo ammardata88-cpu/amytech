@@ -20,7 +20,7 @@ const Footer = () => {
       { name: t("service.digital.title"), path: "/services#digital" },
     ],
     contact: [
-      { icon: Phone, text: "0583140470", href: "tel:0583140470" },
+      { icon: Phone, text: "01554715710", href: "tel:01554710710" },
       { icon: Mail, text: "info@amytech.net", href: "mailto:info@amytech.net" },
     ],
   };
