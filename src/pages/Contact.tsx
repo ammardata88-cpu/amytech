@@ -51,7 +51,7 @@ const Contact = () => {
   return (
     <Layout>
       <title>Contact Amy Tech - Get a Free Consultation</title>
-      <meta name="description" content="Contact Amy Tech for AI-powered ERP, CRM solutions, and digital transformation services. Book a free consultation today. Call 0583140470 or email info@amytech.net" />
+      <meta name="description" content="Contact Amy Tech for AI-powered ERP, CRM solutions, and digital transformation services. Book a free consultation today. Call 01554715710 or email info@amytech.net" />
 
       {/* Hero Section */}
       <section className="py-24 bg-hero text-primary-foreground">
@@ -95,7 +95,7 @@ const Contact = () => {
 
               </div>
               <a
-                href="https://wa.me/966583140470?text=Hi%20!%20I%27m%20interested%20in%20your%20AI%2FERP%20services.%20Can%20we%20schedule%20a%20call%3F"
+                href="https://wa.me/201554715710?text=Hi%20!%20I%27m%20interested%20in%20your%20AI%2FERP%20services.%20Can%20we%20schedule%20a%20call%3F"
 
                 target="_blank"
                 rel="noopener noreferrer"
