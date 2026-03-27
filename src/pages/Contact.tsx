@@ -20,16 +20,11 @@ const Contact = () => {
   const { t } = useLanguage();
 
   const contactInfo = [
-    {
-      icon: Phone,
-      title: t("contactPage.info.phone"),
-      value: "(+966)583140470",
-      href: "tel:+966583140470"
-    },
+  
      {
       icon: Phone,
       title: t("contactPage.info.phone"),
-      value: "(+20)1554715710",
+      value: "01554715710",
       href: "tel:+201554715710"
     },
     {
